@@ -17,4 +17,19 @@ fastapi_project/
 │   ├── main.py
 │   ├── api/
 │   │   ├── __init__.py
-│   │   └── endpoints
+│   │   └── endpoints/
+│   │       └── __init__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   └── config.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── user.py
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   └── user.py
+├── requirements.txt
+├── Dockerfile
+├── .env
+├── .gitignore
+└── README.md
