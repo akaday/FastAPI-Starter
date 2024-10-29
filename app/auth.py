@@ -28,6 +28,11 @@ async def get_user(email: str):
     user = await database.fetch_one(query)
     return user
 
+async def get_user_by_id(user_id: int):
+    query = users.select().where(users.c.id == user_id)
+    user = await database.fetch_one(query)
+    return user
+
 async def authenticate_user(email: str, password: str):
     user = await get_user(email)
     if not user:
