@@ -17,3 +17,14 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     email: Optional[str] = None
+
+class PostCreate(BaseModel):
+    title: str
+    content: str
+    owner_id: int
+
+class PostRead(BaseModel):
+    id: int
+    title: str
+    content: str
+    owner_id: int
