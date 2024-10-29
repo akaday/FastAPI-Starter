@@ -33,3 +33,93 @@ fastapi_project/
 ├── .env
 ├── .gitignore
 └── README.md
+```
+
+## Setup Instructions
+
+### Prerequisites
+- Python 3.7+
+- FastAPI
+- Uvicorn
+- Docker (optional, for containerization)
+
+### Installation
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/akaday/FastAPI-Starter.git
+    cd FastAPI-Starter
+    ```
+
+2. Create and activate a virtual environment:
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3. Install the dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+### Authentication and Validation Setup
+1. Install additional dependencies:
+    ```sh
+    pip install passlib[bcrypt] python-jose pydantic
+    ```
+
+2. Update the `requirements.txt` file to include these dependencies:
+    ```plaintext
+    fastapi
+    uvicorn
+    passlib[bcrypt]
+    python-jose
+    pydantic
+    ```
+
+### Running the Application
+1. Start the FastAPI application:
+    ```sh
+    uvicorn app.main:app --reload
+    ```
+
+2. Open your browser and navigate to `http://127.0.0.1:8000` to see the welcome message.
+
+### Usage Instructions
+
+#### User Registration
+To create a new user, send a POST request to `/users/` with the following JSON body:
+```json
+{
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "yourpassword"
+}
+```
+
+#### User Login
+To log in and get an access token, send a POST request to `/token` with the following form data:
+```plaintext
+username: johndoe@example.com
+password: yourpassword
+```
+
+#### Get Current User
+To get the current authenticated user, send a GET request to `/users/me` with the `Authorization` header:
+```plaintext
+Authorization: Bearer <access_token>
+```
+
+## Deployment
+Consider deploying your app using services like Heroku, AWS, or Azure. Here are some basic steps for deploying with Docker:
+
+1. Build the Docker image:
+    ```sh
+    docker build -t fastapi-starter .
+    ```
+
+2. Run the Docker container:
+    ```sh
+    docker run -d -p 8000:8000 fastapi-starter
+    ```
+
+3. Open your browser and navigate to `http://127.0.0.1:8000` to see the welcome message.
