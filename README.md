@@ -109,6 +109,53 @@ To get the current authenticated user, send a GET request to `/users/me` with th
 Authorization: Bearer <access_token>
 ```
 
+### Using Postman or cURL to Interact with Endpoints
+
+You can use Postman or cURL to interact with the endpoints for creating users, reading users, and reading items.
+
+#### Create User
+**Postman:**
+1. Set the request type to POST.
+2. Set the URL to `http://127.0.0.1:8000/users/`.
+3. In the Body tab, select raw and JSON format.
+4. Provide the following JSON body:
+    ```json
+    {
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "password": "yourpassword"
+    }
+    ```
+5. Send the request.
+
+**cURL:**
+```sh
+curl -X POST "http://127.0.0.1:8000/users/" -H "Content-Type: application/json" -d '{"name": "John Doe", "email": "johndoe@example.com", "password": "yourpassword"}'
+```
+
+#### Read Users
+**Postman:**
+1. Set the request type to GET.
+2. Set the URL to `http://127.0.0.1:8000/users/me`.
+3. In the Headers tab, add the `Authorization` header with the value `Bearer <access_token>`.
+4. Send the request.
+
+**cURL:**
+```sh
+curl -X GET "http://127.0.0.1:8000/users/me" -H "Authorization: Bearer <access_token>"
+```
+
+#### Read Item
+**Postman:**
+1. Set the request type to GET.
+2. Set the URL to `http://127.0.0.1:8000/items/{item_id}` (replace `{item_id}` with the actual item ID).
+3. Send the request.
+
+**cURL:**
+```sh
+curl -X GET "http://127.0.0.1:8000/items/{item_id}"
+```
+
 ## Deployment
 Consider deploying your app using services like Heroku, AWS, or Azure. Here are some basic steps for deploying with Docker:
 
